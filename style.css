@@ -5,6 +5,8 @@ body {
   margin: 40px;
   line-height: 1.5;
   font-size: 1.4rem;
+  position: relative;
+  overflow: hidden; /* ensures orb can move freely */
 }
 
 h1 {
@@ -21,18 +23,11 @@ p {
   max-width: 600px;
 }
 
-/* Heading + orb side by side */
-.heading-orb {
-  display: flex;
-  align-items: center;
-  gap: 40px; /* space between heading and orb */
-}
-
-/* Orb wrapper gives space for animation */
-.rainbow-orb {
-  width: 350px;   /* bigger box for movement */
-  height: 350px;
-  position: relative;
+/* Orb background fills the page */
+.orb-background {
+  position: fixed;
+  inset: 0; /* full screen */
+  z-index: -1; /* behind content */
   pointer-events: none;
 }
 
@@ -40,8 +35,8 @@ p {
 .loader,
 .sphere,
 .item {
-  width: 200px;   /* orb itself is smaller */
-  height: 200px;
+  width: 300px;   /* orb size */
+  height: 300px;
   position: absolute;
   transform-style: preserve-3d;
   perspective: 10000px;
@@ -49,8 +44,9 @@ p {
 
 .sphere,
 .item {
-  top: 75px;   /* center orb inside larger box */
-  left: 75px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .sphere {
@@ -75,13 +71,13 @@ p {
 
 @keyframes girar {
   0% {
-    transform: rotateX(0deg) rotateY(0deg);
+    transform: rotateX(0deg) rotateY(0deg) translate(-50%, -50%);
   }
   100% {
-    transform: rotateX(360deg) rotateY(360deg);
+    transform: rotateX(360deg) rotateY(360deg) translate(-50%, -50%);
   }
 }
 
 .loader {
-  animation: girar 8s linear infinite;
+  animation: girar 20s linear infinite; /* slower, smoother */
 }

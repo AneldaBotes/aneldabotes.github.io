@@ -6,7 +6,7 @@ body {
   line-height: 1.5;
   font-size: 1.4rem;
   position: relative;
-  overflow: hidden;
+  overflow: hidden; /* orb can move freely */
 }
 
 h1 {
@@ -26,8 +26,8 @@ p {
 /* Orb background fills the page */
 .orb-background {
   position: fixed;
-  inset: 0;
-  z-index: -1;
+  inset: 0; /* full screen */
+  z-index: -1; /* behind content */
   pointer-events: none;
 }
 
@@ -35,7 +35,7 @@ p {
 .loader,
 .sphere,
 .item {
-  width: 300px;
+  width: 300px;   /* orb size */
   height: 300px;
   position: absolute;
   transform-style: preserve-3d;
@@ -53,6 +53,7 @@ p {
   transform: rotate(calc(var(--rot) * 20deg));
 }
 
+/* Rainbow colors for each sphere */
 .sphere.sphere1 { --bg: #f008; }
 .sphere.sphere2 { --bg: #f0f8; }
 .sphere.sphere3 { --bg: #ff08; }
@@ -79,5 +80,5 @@ p {
 }
 
 .loader {
-  animation: girar 20s linear infinite;
+  animation: girar 20s linear infinite; /* slower, smoother */
 }

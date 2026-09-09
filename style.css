@@ -20,7 +20,9 @@ p {
   font-size: 1.6rem;
   max-width: 600px;
 }
- .container {
+
+/* From Uiverse.io by 20essentials */
+.container {
   position: absolute;
   inset: 0;
   zoom: 0.5;
@@ -29,12 +31,52 @@ p {
     top: calc(50% - 200px);
     left: calc(50% - 200px);
     animation: girar 8s linear infinite;
+
+    &,
+    .sphere,
+    .item {
+      width: 400px;
+      height: 400px;
+      position: absolute;
+      transform-style: preserve-3d;
+      perspective: 10000px;
+    }
+
+    .sphere,
+    .item {
+      top: 0;
+      left: 0;
+    }
+
+    .sphere {
+      transform: rotate(calc(var(--rot) * 20deg));
+
+      &.sphere1 { --bg: #f008; }
+      &.sphere2 { --bg: #f0f8; }
+      &.sphere3 { --bg: #ff08; }
+      &.sphere4 { --bg: #0f08; }
+      &.sphere5 { --bg: #0ff8; }
+      &.sphere6 { --bg: #00f8; }
+      &.sphere7 { --bg: #dc1ddf88; }
+      &.sphere8 { --bg: #ffa50088; }
+      &.sphere9 { --bg: #e5b2ca88; }
+    }
+
+    .item {
+      border-radius: 50%;
+      background: var(--bg);
+      transform: rotateY(calc(var(--rot-y) * 40deg));
+    }
   }
 }
 
 @keyframes girar {
-  0% { transform: rotateX(0deg) rotateY(0deg); }
-  100% { transform: rotateX(360deg) rotateY(360deg); }
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
 }
 
 .rainbow-orb-corner {
@@ -56,4 +98,4 @@ p {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.475);
-} 
+}

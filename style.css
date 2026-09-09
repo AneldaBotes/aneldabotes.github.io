@@ -25,19 +25,23 @@ p {
 .heading-orb {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 40px; /* space between heading and orb */
 }
 
-/* Orb container */
-.container {
+/* Orb wrapper gives space for animation */
+.rainbow-orb {
+  width: 350px;   /* bigger box for movement */
+  height: 350px;
   position: relative;
+  pointer-events: none;
 }
 
+/* Orb core */
 .loader,
 .sphere,
 .item {
-  width: 200px;   /* half size */
-  height: 200px;  /* half size */
+  width: 200px;   /* orb itself is smaller */
+  height: 200px;
   position: absolute;
   transform-style: preserve-3d;
   perspective: 10000px;
@@ -45,8 +49,8 @@ p {
 
 .sphere,
 .item {
-  top: 0;
-  left: 0;
+  top: 75px;   /* center orb inside larger box */
+  left: 75px;
 }
 
 .sphere {
@@ -80,10 +84,4 @@ p {
 
 .loader {
   animation: girar 8s linear infinite;
-}
-
-.rainbow-orb {
-  width: 200px;
-  height: 200px;
-  pointer-events: none;
 }

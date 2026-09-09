@@ -1,0 +1,23 @@
+body {
+  background-color: #ff00bf;
+  color: #595959
+  font-family: 'VT323', monospace;
+  margin: 40px;
+  line-height: 1.5;
+  font-size: 1.4rem;
+}
+
+h1 {
+  font-family: 'Press Start 2P', cursive;
+  color: #53a6ac;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-shadow: 3px 3px 0 #ff1ab3;
+}
+
+p {
+  color: #ff1ab3;
+  font-size: 1.6rem;
+  max-width: 600px;
+}
+  

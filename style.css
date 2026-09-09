@@ -39,4 +39,45 @@ p {
   height: 300px;
   position: absolute;
   transform-style: preserve-3d;
-  perspective: 
+  perspective: 10000px;
+}
+
+.sphere,
+.item {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sphere {
+  transform: rotate(calc(var(--rot) * 20deg));
+}
+
+.sphere.sphere1 { --bg: #f008; }
+.sphere.sphere2 { --bg: #f0f8; }
+.sphere.sphere3 { --bg: #ff08; }
+.sphere.sphere4 { --bg: #0f08; }
+.sphere.sphere5 { --bg: #0ff8; }
+.sphere.sphere6 { --bg: #00f8; }
+.sphere.sphere7 { --bg: #dc1ddf88; }
+.sphere.sphere8 { --bg: #ffa50088; }
+.sphere.sphere9 { --bg: #e5b2ca88; }
+
+.item {
+  border-radius: 50%;
+  background: var(--bg);
+  transform: rotateY(calc(var(--rot-y) * 40deg));
+}
+
+@keyframes girar {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) translate(-50%, -50%);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) translate(-50%, -50%);
+  }
+}
+
+.loader {
+  animation: girar 20s linear infinite;
+}

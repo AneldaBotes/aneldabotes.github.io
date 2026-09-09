@@ -1,6 +1,6 @@
 body {
-  background-color: #00004d;
-  color: #595959
+  background-color: #0a0a0a;
+  color: #e0e0e0
   font-family: 'VT323', monospace;
   margin: 40px;
   line-height: 1.5;
@@ -16,7 +16,7 @@ h1 {
 }
 
 p {
-  color: #ff1ab3;
+  color: #00ffff;
   font-size: 1.6rem;
   max-width: 600px;
 }

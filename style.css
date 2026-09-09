@@ -21,79 +21,52 @@ p {
   max-width: 600px;
 }
 
-/* From Uiverse.io by 20essentials */
+/* Heading + orb side by side */
+.heading-orb {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Orb container */
 .container {
+  position: relative;
+}
+
+.loader,
+.sphere,
+.item {
+  width: 200px;   /* half size */
+  height: 200px;  /* half size */
   position: absolute;
-  inset: 0;
-  zoom: 0.5;
+  transform-style: preserve-3d;
+  perspective: 10000px;
+}
 
-  .loader {
-    top: calc(50% - 200px);
-    left: calc(50% - 200px);
-    animation: girar 8s linear infinite;
+.sphere,
+.item {
+  top: 0;
+  left: 0;
+}
 
-    &,
-    .sphere,
-    .item {
-      width: 400px;
-      height: 400px;
-      position: absolute;
-      transform-style: preserve-3d;
-      perspective: 10000px;
-    }
+.sphere {
+  transform: rotate(calc(var(--rot) * 20deg));
+}
 
-    .sphere,
-    .item {
-      top: 0;
-      left: 0;
-    }
+.sphere.sphere1 { --bg: #f008; }
+.sphere.sphere2 { --bg: #f0f8; }
+.sphere.sphere3 { --bg: #ff08; }
+.sphere.sphere4 { --bg: #0f08; }
+.sphere.sphere5 { --bg: #0ff8; }
+.sphere.sphere6 { --bg: #00f8; }
+.sphere.sphere7 { --bg: #dc1ddf88; }
+.sphere.sphere8 { --bg: #ffa50088; }
+.sphere.sphere9 { --bg: #e5b2ca88; }
 
-    .sphere {
-      transform: rotate(calc(var(--rot) * 20deg));
-
-      &.sphere1 {
-        --bg: #f008;
-      }
-
-      &.sphere2 {
-        --bg: #f0f8;
-      }
-
-      &.sphere3 {
-        --bg: #ff08;
-      }
-
-      &.sphere4 {
-        --bg: #0f08;
-      }
-
-      &.sphere5 {
-        --bg: #0ff8;
-      }
-
-      &.sphere6 {
-        --bg: #00f8;
-      }
-
-      &.sphere7 {
-        --bg: #dc1ddf88;
-      }
-
-      &.sphere8 {
-        --bg: #ffa50088;
-      }
-
-      &.sphere9 {
-        --bg: #e5b2ca88;
-      }
-    }
-
-    .item {
-      border-radius: 50%;
-      background: var(--bg);
-      transform: rotateY(calc(var(--rot-y) * 40deg));
-    }
-  }
+.item {
+  border-radius: 50%;
+  background: var(--bg);
+  transform: rotateY(calc(var(--rot-y) * 40deg));
 }
 
 @keyframes girar {
@@ -105,26 +78,12 @@ p {
   }
 }
 
-.rainbow-orb-corner {
-  position: fixed;
-  top: 40px;
-  right: 40px;
-  width: 95px;
-  height: 95px;
-  overflow: hidden;
-  z-index: 10;
+.loader {
+  animation: girar 8s linear infinite;
+}
+
+.rainbow-orb {
+  width: 200px;
+  height: 200px;
   pointer-events: none;
-}
-
-.rainbow-orb-corner .container {
-  position: absolute;
-  inset: 0;
-  zoom: 1;
-}
-
-.rainbow-orb-corner .container .loader {
-  top: 0;
-  left: 0;
-  transform-origin: top left;
-  transform: scale(0.2375);
 }

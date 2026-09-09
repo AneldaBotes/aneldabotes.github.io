@@ -51,15 +51,41 @@ p {
     .sphere {
       transform: rotate(calc(var(--rot) * 20deg));
 
-      &.sphere1 { --bg: #f008; }
-      &.sphere2 { --bg: #f0f8; }
-      &.sphere3 { --bg: #ff08; }
-      &.sphere4 { --bg: #0f08; }
-      &.sphere5 { --bg: #0ff8; }
-      &.sphere6 { --bg: #00f8; }
-      &.sphere7 { --bg: #dc1ddf88; }
-      &.sphere8 { --bg: #ffa50088; }
-      &.sphere9 { --bg: #e5b2ca88; }
+      &.sphere1 {
+        --bg: #f008;
+      }
+
+      &.sphere2 {
+        --bg: #f0f8;
+      }
+
+      &.sphere3 {
+        --bg: #ff08;
+      }
+
+      &.sphere4 {
+        --bg: #0f08;
+      }
+
+      &.sphere5 {
+        --bg: #0ff8;
+      }
+
+      &.sphere6 {
+        --bg: #00f8;
+      }
+
+      &.sphere7 {
+        --bg: #dc1ddf88;
+      }
+
+      &.sphere8 {
+        --bg: #ffa50088;
+      }
+
+      &.sphere9 {
+        --bg: #e5b2ca88;
+      }
     }
 
     .item {

@@ -20,4 +20,40 @@ p {
   font-size: 1.6rem;
   max-width: 600px;
 }
-  
+ .container {
+  position: absolute;
+  inset: 0;
+  zoom: 0.5;
+
+  .loader {
+    top: calc(50% - 200px);
+    left: calc(50% - 200px);
+    animation: girar 8s linear infinite;
+  }
+}
+
+@keyframes girar {
+  0% { transform: rotateX(0deg) rotateY(0deg); }
+  100% { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+.rainbow-orb-corner {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 190px;
+  height: 190px;
+  overflow: hidden;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.rainbow-orb-corner .container {
+  zoom: 1;
+}
+
+.rainbow-orb-corner .loader {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.475);
+} 

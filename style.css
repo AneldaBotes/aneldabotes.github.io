@@ -54,15 +54,15 @@ p {
 }
 
 /* Rainbow colors for each sphere */
-.sphere.sphere1 { --bg: #f008; }
-.sphere.sphere2 { --bg: #f0f8; }
-.sphere.sphere3 { --bg: #ff08; }
-.sphere.sphere4 { --bg: #0f08; }
-.sphere.sphere5 { --bg: #0ff8; }
-.sphere.sphere6 { --bg: #00f8; }
-.sphere.sphere7 { --bg: #dc1ddf88; }
-.sphere.sphere8 { --bg: #ffa50088; }
-.sphere.sphere9 { --bg: #e5b2ca88; }
+.sphere.sphere1 { --bg: #f008; }       /* red */
+.sphere.sphere2 { --bg: #f0f8; }       /* pink */
+.sphere.sphere3 { --bg: #ff08; }       /* orange */
+.sphere.sphere4 { --bg: #0f08; }       /* green */
+.sphere.sphere5 { --bg: #0ff8; }       /* cyan */
+.sphere.sphere6 { --bg: #00f8; }       /* blue */
+.sphere.sphere7 { --bg: #dc1ddf88; }   /* purple */
+.sphere.sphere8 { --bg: #ffa50088; }   /* amber */
+.sphere.sphere9 { --bg: #e5b2ca88; }   /* pastel pink */
 
 .item {
   border-radius: 50%;

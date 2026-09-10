@@ -111,7 +111,7 @@ p {
 
 .nokia-stage {
   position: fixed;
-  top: 50%;
+  top: 70%;
   left: 40px;
   transform: translateY(-50%);
   perspective: 800px;
@@ -119,7 +119,7 @@ p {
 }
 
 .nokia-spin {
-  width: 200px;
+  width: 100px;
   height: auto;
   display: block;
   transform-style: preserve-3d;

@@ -20,7 +20,9 @@ p {
   font-size: 1.6rem;
   max-width: 600px;
 }
-/*happy or sad button*/
+
+/* happy or sad button */
+
 .corner-container {
   position: fixed;
   top: 20px;
@@ -103,4 +105,29 @@ p {
 
 .main-checkbox:checked ~ .main-knob::after {
   content: ":(";
+}
+
+/* Spinning Nokia phone */
+
+.nokia-stage {
+  position: fixed;
+  top: 50%;
+  left: 40px;
+  transform: translateY(-50%);
+  perspective: 800px;
+  z-index: 5;
+}
+
+.nokia-spin {
+  width: 200px;
+  height: auto;
+  display: block;
+  transform-style: preserve-3d;
+  animation: nokia-wobble 4s ease-in-out infinite;
+}
+
+@keyframes nokia-wobble {
+  0%   { transform: rotateY(-18deg); }
+  50%  { transform: rotateY(18deg); }
+  100% { transform: rotateY(-18deg); }
 }

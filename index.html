@@ -31,6 +31,42 @@
     <img src="nokia.png" alt="Nokia phone" class="nokia-spin">
   </div>
   
+  <!-- Fairy dust cursor trail -->
+  <script>
+    (function () {
+      var sparkleColors = ['#ff1ab3', '#ff6fd8', '#00ffff', '#ffffff'];
+      var lastSpawn = 0;
+      var throttleMs = 40;
+
+      function spawnSparkle(x, y) {
+        var sparkle = document.createElement('div');
+        sparkle.className = 'fairy-sparkle';
+
+        var size = Math.random() * 8 + 5;
+        sparkle.style.width = size + 'px';
+        sparkle.style.height = size + 'px';
+        sparkle.style.left = (x + (Math.random() * 12 - 6)) + 'px';
+        sparkle.style.top = (y + (Math.random() * 12 - 6)) + 'px';
+        sparkle.style.background = sparkleColors[Math.floor(Math.random() * sparkleColors.length)];
+        sparkle.style.setProperty('--drift', (Math.random() * 24 - 12) + 'px');
+
+        document.body.appendChild(sparkle);
+
+        window.setTimeout(function () {
+          sparkle.remove();
+        }, 750);
+      }
+
+      document.addEventListener('mousemove', function (e) {
+        var now = Date.now();
+        if (now - lastSpawn < throttleMs) return;
+        lastSpawn = now;
+        spawnSparkle(e.clientX, e.clientY);
+      });
+    })();
+  </script>
+
+  
 <!---me follow scroll--->
    <img src="PixiePose.png" alt="Self portrait" class="self-portrait">
 

@@ -30,7 +30,92 @@
   <div class="nokia-stage">
     <img src="nokia.png" alt="Nokia phone" class="nokia-spin">
   </div>
-  
+
+  <!---About Me window--->
+  <div class="os-window" id="about">
+    <div class="os-titlebar">
+      <span class="os-titlebar-label">🗔 ABOUT_ME.exe</span>
+      <div class="os-controls">
+        <button>_</button>
+        <button>▢</button>
+        <button>X</button>
+      </div>
+    </div>
+    <div class="os-body">
+      <p>hi, i'm annie. i live somewhere between the pixels and the static.</p>
+
+      <div class="zodiac-box" id="zodiacBox">
+        <div class="zodiac-titlebar">
+          <span>Message : FROM A TAURUS</span>
+          <button class="zodiac-close" onclick="document.getElementById('zodiacBox').style.display='none'">X</button>
+        </div>
+        <div class="zodiac-body">
+          <div class="zodiac-heart">&#9825;</div>
+          <p class="zodiac-message">i'm always right</p>
+        </div>
+        <div class="zodiac-footer">
+          <button class="zodiac-ok" onclick="document.getElementById('zodiacBox').style.display='none'">ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!---Gallery window--->
+  <div class="os-window" id="gallery">
+    <div class="os-titlebar">
+      <span class="os-titlebar-label">🖼 GALLERY.exe</span>
+      <div class="os-controls">
+        <button>_</button>
+        <button>▢</button>
+        <button>X</button>
+      </div>
+    </div>
+    <div class="os-body">
+      <p>a few pixels i collected</p>
+      <div class="gallery-grid">
+        <div class="gallery-tile tile-a">img_01</div>
+        <div class="gallery-tile tile-b">img_02</div>
+        <div class="gallery-tile tile-c">img_03</div>
+        <div class="gallery-tile tile-d">img_04</div>
+        <div class="gallery-tile tile-e">img_05</div>
+        <div class="gallery-tile tile-f">img_06</div>
+      </div>
+    </div>
+  </div>
+
+  <!---Guestbook window--->
+  <div class="os-window" id="guestbook">
+    <div class="os-titlebar">
+      <span class="os-titlebar-label">💬 GUESTBOOK.exe</span>
+      <div class="os-controls">
+        <button>_</button>
+        <button>▢</button>
+        <button>X</button>
+      </div>
+    </div>
+    <div class="os-body">
+      <p>leave your mark</p>
+      <div class="guestbook-inner">
+        <div class="guestbook-entry">
+          <div class="guestbook-avatar avatar-a"></div>
+          <p class="guestbook-entry-text">this page is so cute!!</p>
+        </div>
+        <div class="guestbook-entry">
+          <div class="guestbook-avatar avatar-b"></div>
+          <p class="guestbook-entry-text">the nokia phone made me smile</p>
+        </div>
+        <div class="guestbook-entry">
+          <div class="guestbook-avatar avatar-c"></div>
+          <p class="guestbook-entry-text">taurus rights fr</p>
+        </div>
+        <div class="guestbook-inputrow">
+          <input type="text" class="guestbook-input" placeholder="type a message..." disabled>
+          <button class="guestbook-send" disabled>SEND</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Fairy dust cursor trail -->
   <script>
     (function () {
@@ -66,9 +151,16 @@
     })();
   </script>
 
-  
-<!---me follow scroll--->
-   <img src="PixiePose.png" alt="Self portrait" class="self-portrait">
+  <!---me follow scroll--->
+  <img src="PixiePose.png" alt="Self portrait" class="self-portrait">
+
+  <!---taskbar navigation--->
+  <div class="taskbar">
+    <button class="start-button" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">START</button>
+    <button class="taskbar-tab" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">About Me</button>
+    <button class="taskbar-tab" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">Gallery</button>
+    <button class="taskbar-tab" onclick="document.getElementById('guestbook').scrollIntoView({behavior:'smooth'})">Guestbook</button>
+  </div>
 
 </body>
 </html>

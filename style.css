@@ -124,7 +124,7 @@ p {
 }
 
 .nokia-spin {
-  width: 200px;
+  width: 100px;
   height: auto;
   display: block;
   transform-style: preserve-3d;
@@ -139,8 +139,8 @@ p {
 
 /* the PixiePose */
 .self-portrait {
-  position: absolute;
-  bottom: 40px;
+  position: fixed;
+  bottom: 20px;
   right: 40px;
   width: 220px;
   height: auto;

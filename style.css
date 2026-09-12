@@ -1,8 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #000099;
   color: #e0e0e0;
   font-family: 'VT323', monospace;
-  margin: 40px;
+  margin: 0;
+  padding: 40px 40px 120px;
   line-height: 1.5;
   font-size: 1.4rem;
 }
@@ -21,7 +26,7 @@ p {
   max-width: 600px;
 }
 
-/* From Uiverse.io by anand_4957 */
+/* happy or sad switch */
 
 .corner-container {
   position: fixed;
@@ -111,7 +116,7 @@ p {
 
 .nokia-stage {
   position: fixed;
-  top: 70%;
+  top: 50%;
   left: 40px;
   transform: translateY(-50%);
   perspective: 800px;
@@ -119,7 +124,7 @@ p {
 }
 
 .nokia-spin {
-  width: 100px;
+  width: 200px;
   height: auto;
   display: block;
   transform-style: preserve-3d;
@@ -131,6 +136,7 @@ p {
   50%  { transform: rotateY(18deg); }
   100% { transform: rotateY(-18deg); }
 }
+
 /* the PixiePose */
 .self-portrait {
   position: absolute;
@@ -140,6 +146,7 @@ p {
   height: auto;
   z-index: 3;
 }
+
 /* Fairy dust cursor + trail */
 
 html, body {
@@ -168,4 +175,275 @@ a, button, label, input {
     opacity: 0;
     transform: translateY(-28px) translateX(var(--drift, 0px)) scale(0.2) rotate(90deg);
   }
+}
+
+/* ===== Windows 98 desktop sections ===== */
+
+.os-window {
+  max-width: 640px;
+  margin: 0 auto 80px;
+  background: #000033;
+  border: 4px solid #ff1ab3;
+  box-shadow: 8px 8px 0 #00ffff;
+  position: relative;
+  z-index: 6;
+}
+
+.os-titlebar {
+  background: #ff1ab3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 3px solid #000033;
+}
+
+.os-titlebar-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.7rem;
+  color: #ffffff;
+}
+
+.os-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.os-controls button {
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  border: 2px solid #000033;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.5rem;
+  line-height: 1;
+  color: #000033;
+}
+
+.os-body {
+  padding: 24px;
+}
+
+.os-body p {
+  color: #00ffff;
+  margin-top: 0;
+}
+
+/* Gallery grid */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.gallery-tile {
+  aspect-ratio: 1;
+  border: 3px solid #ff1ab3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.6rem;
+  color: #ffffff;
+}
+
+.tile-a { background: #ff1ab3; }
+.tile-b { background: #000099; }
+.tile-c { background: #00ffff; color: #000033; }
+.tile-d { background: #ff6fd8; }
+.tile-e { background: #000033; }
+.tile-f { background: #53a6ac; }
+
+/* Zodiac box (now embedded inside About Me, no longer fixed) */
+
+.zodiac-box {
+  width: 260px;
+  background: #000020;
+  border: 3px solid #ff1ab3;
+  box-shadow: 4px 4px 0 #00ffff;
+  margin-top: 18px;
+  font-family: 'VT323', monospace;
+}
+
+.zodiac-titlebar {
+  background: #ff1ab3;
+  color: #ffffff;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.5rem;
+  padding: 6px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.zodiac-close {
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.5rem;
+  width: 16px;
+  height: 16px;
+  line-height: 1;
+}
+
+.zodiac-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px;
+}
+
+.zodiac-heart {
+  font-size: 1.8rem;
+  color: #ff1ab3;
+  text-shadow: 2px 2px 0 #00ffff;
+}
+
+.zodiac-message {
+  color: #00ffff;
+  font-size: 1.2rem;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.zodiac-footer {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 14px;
+}
+
+.zodiac-ok {
+  background: #ffffff;
+  border: 2px solid #000000;
+  box-shadow: 2px 2px 0 #000000;
+  font-family: 'VT323', monospace;
+  font-size: 1rem;
+  padding: 3px 18px;
+}
+
+.zodiac-ok:active {
+  box-shadow: 1px 1px 0 #000000;
+  transform: translate(1px, 1px);
+}
+
+/* Guestbook (condensed, inside Guestbook window) */
+
+.guestbook-inner {
+  background: #ff1ab3;
+  border: 3px solid #000033;
+}
+
+.guestbook-entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  border-bottom: 2px solid #000033;
+}
+
+.guestbook-entry:last-child {
+  border-bottom: none;
+}
+
+.guestbook-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #000033;
+  flex-shrink: 0;
+}
+
+.avatar-a { background: repeating-conic-gradient(#00ffff 0% 25%, #ffffff 0% 50%); background-size: 8px 8px; }
+.avatar-b { background: repeating-conic-gradient(#ffffff 0% 25%, #ff9fe0 0% 50%); background-size: 8px 8px; }
+.avatar-c { background: repeating-conic-gradient(#000033 0% 25%, #00ffff 0% 50%); background-size: 8px 8px; }
+
+.guestbook-entry-text {
+  color: #000033;
+  font-size: 1.05rem;
+  margin: 0;
+  padding-top: 2px;
+}
+
+.guestbook-inputrow {
+  display: flex;
+  border-top: 3px solid #000033;
+}
+
+.guestbook-input {
+  flex: 1;
+  background: #ff9fe0;
+  border: none;
+  color: #000033;
+  font-family: 'VT323', monospace;
+  font-size: 1.1rem;
+  padding: 8px 10px;
+}
+
+.guestbook-input::placeholder {
+  color: #99406b;
+}
+
+.guestbook-send {
+  background: #ffffff;
+  border: none;
+  border-left: 3px solid #000033;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.55rem;
+  color: #000033;
+  padding: 0 14px;
+  cursor: not-allowed;
+}
+
+/* Taskbar */
+
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 52px;
+  background: #c0c0c0;
+  border-top: 3px solid #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  gap: 8px;
+  z-index: 50;
+}
+
+.start-button {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.65rem;
+  background: #ff1ab3;
+  color: #ffffff;
+  border: 3px solid #000033;
+  box-shadow: 2px 2px 0 #000033;
+  padding: 8px 14px;
+}
+
+.start-button:active {
+  box-shadow: none;
+  transform: translate(2px, 2px);
+}
+
+.taskbar-tab {
+  font-family: 'VT323', monospace;
+  font-size: 1.1rem;
+  background: #e0e0e0;
+  color: #000033;
+  border: 2px solid #808080;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  padding: 6px 16px;
+}
+
+.taskbar-tab:active {
+  border-color: #808080;
 }

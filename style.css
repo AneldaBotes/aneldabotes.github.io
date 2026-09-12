@@ -115,7 +115,7 @@ p {
 /* Spinning Nokia phone */
 
 .nokia-stage {
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 40px;
   transform: translateY(-50%);

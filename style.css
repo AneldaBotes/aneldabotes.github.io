@@ -244,20 +244,15 @@ a, button, label, input {
 .gallery-tile {
   aspect-ratio: 1;
   border: 3px solid #ff1ab3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.6rem;
-  color: #ffffff;
+  overflow: hidden;
 }
 
-.tile-a { background: #ff1ab3; }
-.tile-b { background: #000099; }
-.tile-c { background: #00ffff; color: #000033; }
-.tile-d { background: #ff6fd8; }
-.tile-e { background: #000033; }
-.tile-f { background: #53a6ac; }
+.gallery-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
 /* Zodiac box (now embedded inside About Me, no longer fixed) */
 

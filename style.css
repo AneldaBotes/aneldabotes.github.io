@@ -177,7 +177,7 @@ a, button, label, input {
   }
 }
 
-/* ===== Windows 98 desktop sections ===== */
+/* window sections */
 
 .os-window {
   max-width: 640px;
@@ -254,7 +254,7 @@ a, button, label, input {
   display: block;
 }
 
-/* Zodiac box (now embedded inside About Me, no longer fixed) */
+/* Zodiac box ( embedded inside About Me - clickable) */
 
 .zodiac-box {
   width: 260px;

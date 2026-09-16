@@ -1,0 +1,66 @@
+/* From Uiverse.io by 20essentials — adapted for inline placement next to h1 text */
+
+.orb-inline {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.orb-inline .container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 400px;
+  transform: scale(0.1);
+  transform-origin: top left;
+}
+
+.orb-inline .loader {
+  top: calc(50% - 200px);
+  left: calc(50% - 200px);
+  animation: girar 8s linear infinite;
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  transform-style: preserve-3d;
+  perspective: 10000px;
+}
+
+.orb-inline .sphere,
+.orb-inline .item {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-style: preserve-3d;
+  perspective: 10000px;
+}
+
+.orb-inline .sphere {
+  transform: rotate(calc(var(--rot) * 20deg));
+}
+
+.orb-inline .sphere1 { --bg: #f008; }
+.orb-inline .sphere2 { --bg: #f0f8; }
+.orb-inline .sphere3 { --bg: #ff08; }
+.orb-inline .sphere4 { --bg: #0f08; }
+.orb-inline .sphere5 { --bg: #0ff8; }
+.orb-inline .sphere6 { --bg: #00f8; }
+.orb-inline .sphere7 { --bg: #dc1ddf88; }
+.orb-inline .sphere8 { --bg: #e5b2ca88; }
+
+.orb-inline .item {
+  border-radius: 50%;
+  background: var(--bg);
+  transform: rotateY(calc(var(--rot-y) * 40deg));
+}
+
+@keyframes girar {
+  0% { transform: rotateX(0deg) rotateY(0deg); }
+  100% { transform: rotateX(360deg) rotateY(360deg); }
+}

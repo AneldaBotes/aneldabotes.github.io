@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="orb.css">
 </head>
 <body>
 
@@ -23,7 +24,7 @@
     </label>
   </div>
 
-  <h1>Digital Ghost</h1>
+  <h1>Digital Ghost<span class="orb-inline" id="rainbow-orb"></span></h1>
   <p>Loving awareness - soft in the machine - collecting pixels</p>
 
   <!---nokia spin--->
@@ -161,6 +162,6 @@
     <button class="taskbar-tab" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">Gallery</button>
     <button class="taskbar-tab" onclick="document.getElementById('guestbook').scrollIntoView({behavior:'smooth'})">Guestbook</button>
   </div>
-
+<script src="orb.js"></script>
 </body>
 </html>

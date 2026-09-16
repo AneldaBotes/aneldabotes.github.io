@@ -12,9 +12,16 @@
 
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="orb.css">
+<link rel="stylesheet" href="stars-bg.css">
 </head>
 <body>
-
+  <!---animated starfield background--->
+  <div class="stars-bg">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+    <div></div>
+  </div>
   <!---happy or sad button--->
   <div class="corner-container">
     <label class="main-toggle">
@@ -163,5 +170,6 @@
     <button class="taskbar-tab" onclick="document.getElementById('guestbook').scrollIntoView({behavior:'smooth'})">Guestbook</button>
   </div>
 <script src="orb.js"></script>
+<script src="stars-bg.js"></script>
 </body>
 </html>

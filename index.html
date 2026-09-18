@@ -39,91 +39,6 @@
     <img src="nokia.png" alt="Nokia phone" class="nokia-spin">
   </div>
 
-  <!---About Me window--->
-  <div class="os-window" id="about">
-    <div class="os-titlebar">
-      <span class="os-titlebar-label">🗔 ABOUT_ME.exe</span>
-      <div class="os-controls">
-        <button>_</button>
-        <button>▢</button>
-        <button>X</button>
-      </div>
-    </div>
-    <div class="os-body">
-      <p>hi, i'm annie. i live online.</p>
-
-      <div class="zodiac-box" id="zodiacBox">
-        <div class="zodiac-titlebar">
-          <span>Message : FROM A TAURUS</span>
-          <button class="zodiac-close" onclick="document.getElementById('zodiacBox').style.display='none'">X</button>
-        </div>
-        <div class="zodiac-body">
-          <div class="zodiac-heart">&#9825;</div>
-          <p class="zodiac-message">i'm always right</p>
-        </div>
-        <div class="zodiac-footer">
-          <button class="zodiac-ok" onclick="document.getElementById('zodiacBox').style.display='none'">ok</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!---Gallery window--->
-  <div class="os-window" id="gallery">
-    <div class="os-titlebar">
-      <span class="os-titlebar-label">🖼 GALLERY.exe</span>
-      <div class="os-controls">
-        <button>_</button>
-        <button>▢</button>
-        <button>X</button>
-      </div>
-    </div>
-    <div class="os-body">
-      <p>a few pixels i collected</p>
-      <div class="gallery-grid">
-        <div class="gallery-tile"><img src="cyberpunk-garden.jpg" alt="Cyberpunk garden"></div>
-        <div class="gallery-tile"><img src="cyberpunk-street.jpg" alt="Cyberpunk street"></div>
-        <div class="gallery-tile"><img src="leisure.jpg" alt="Leisure"></div>
-        <div class="gallery-tile"><img src="where-are-you.jpg" alt="Where are you"></div>
-        <div class="gallery-tile"><img src="cyber-city.jpg" alt="Cyberpunk City"></div>
-        <div class="gallery-tile"><img src="cyber-bridge.jpg" alt="Cyberpunk Bridge"></div>
-      </div>
-    </div>
-  </div>
-
-  <!---Guestbook window--->
-  <div class="os-window" id="guestbook">
-    <div class="os-titlebar">
-      <span class="os-titlebar-label">💬 GUESTBOOK.exe</span>
-      <div class="os-controls">
-        <button>_</button>
-        <button>▢</button>
-        <button>X</button>
-      </div>
-    </div>
-    <div class="os-body">
-      <p>leave your mark</p>
-      <div class="guestbook-inner">
-        <div class="guestbook-entry">
-          <div class="guestbook-avatar avatar-a"></div>
-          <p class="guestbook-entry-text">this page is so cute!!</p>
-        </div>
-        <div class="guestbook-entry">
-          <div class="guestbook-avatar avatar-b"></div>
-          <p class="guestbook-entry-text">the nokia phone made me smile</p>
-        </div>
-        <div class="guestbook-entry">
-          <div class="guestbook-avatar avatar-c"></div>
-          <p class="guestbook-entry-text">taurus rights fr</p>
-        </div>
-        <div class="guestbook-inputrow">
-          <input type="text" class="guestbook-input" placeholder="type a message..." disabled>
-          <button class="guestbook-send" disabled>SEND</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Fairy dust cursor trail -->
   <script>
     (function () {
@@ -163,12 +78,14 @@
   <img src="PixiePose.png" alt="Self portrait" class="self-portrait">
 
   <!---taskbar navigation--->
-  <div class="taskbar">
-    <button class="start-button" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">START</button>
-    <button class="taskbar-tab" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">About Me</button>
-    <button class="taskbar-tab" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">Gallery</button>
-    <button class="taskbar-tab" onclick="document.getElementById('guestbook').scrollIntoView({behavior:'smooth'})">Guestbook</button>
+    <div class="taskbar">
+    <a class="start-button" href="index.html">START</a>
+    <a class="taskbar-tab" href="about.html">About Me</a>
+    <a class="taskbar-tab" href="research.html">Research</a>
+    <a class="taskbar-tab" href="gallery.html">Gallery</a>
+    <a class="taskbar-tab" href="guestbook.html">Guestbook</a>
   </div>
+  
 <script src="orb.js"></script>
 <script src="stars-bg.js"></script>
 </body>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guestbook — Cybernaut Annie</title>
+
+<!----y2k fonts---->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+<!-- page-specific theme for Guestbook goes here once we design it -->
+</head>
+<body>
+
+  <!---Guestbook window--->
+  <div class="os-window" id="guestbook">
+    <div class="os-titlebar">
+      <span class="os-titlebar-label">💬 GUESTBOOK.exe</span>
+      <div class="os-controls">
+        <button>_</button>
+        <button>▢</button>
+        <button>X</button>
+      </div>
+    </div>
+    <div class="os-body">
+      <p>leave your mark</p>
+      <div class="guestbook-inner">
+        <div class="guestbook-entry">
+          <div class="guestbook-avatar avatar-a"></div>
+          <p class="guestbook-entry-text">this page is so cute!!</p>
+        </div>
+        <div class="guestbook-entry">
+          <div class="guestbook-avatar avatar-b"></div>
+          <p class="guestbook-entry-text">the nokia phone made me smile</p>
+        </div>
+        <div class="guestbook-entry">
+          <div class="guestbook-avatar avatar-c"></div>
+          <p class="guestbook-entry-text">taurus rights fr</p>
+        </div>
+        <div class="guestbook-inputrow">
+          <input type="text" class="guestbook-input" placeholder="type a message..." disabled>
+          <button class="guestbook-send" disabled>SEND</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!---taskbar navigation--->
+  <div class="taskbar">
+    <a class="start-button" href="index.html">START</a>
+    <a class="taskbar-tab" href="about.html">About Me</a>
+    <a class="taskbar-tab" href="research.html">Research</a>
+    <a class="taskbar-tab" href="gallery.html">Gallery</a>
+    <a class="taskbar-tab" href="guestbook.html">Guestbook</a>
+  </div>
+
+</body>
+</html>

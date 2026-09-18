@@ -414,6 +414,8 @@ a, button, label, input {
 }
 
 .start-button {
+  display: inline-block;
+  text-decoration: none;
   font-family: 'Press Start 2P', cursive;
   font-size: 0.65rem;
   background: #ff1ab3;
@@ -429,6 +431,8 @@ a, button, label, input {
 }
 
 .taskbar-tab {
+  display: inline-block;
+  text-decoration: none;
   font-family: 'VT323', monospace;
   font-size: 1.1rem;
   background: #e0e0e0;

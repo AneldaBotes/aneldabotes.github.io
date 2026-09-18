@@ -8,7 +8,7 @@
   background: #000;
   overflow: hidden;
   z-index: -1;
-  opacity: 0.35; /* dims it so page content stays readable — adjust to taste */
+  opacity: 0.67; /* dims it so page content stays readable — adjust to taste */
   display: flex;
 }
 

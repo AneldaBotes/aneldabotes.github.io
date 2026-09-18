@@ -1,10 +1,12 @@
-/* Tiled faded grid background — recolored from Uiverse.io by Gautammsharma */
+/* Tiled faded grid background*/
 
 .grid-wrapper {
-  min-height: 100%;
-  width: 100%;
-  position: relative;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
   background-color: #000033;
+  z-index: -1;
 }
 
 .grid-background {

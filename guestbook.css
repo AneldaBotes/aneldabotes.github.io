@@ -1,8 +1,7 @@
-/* Star rating widget — top right of Guestbook page
-   From Uiverse.io by andrew-demchenk0 */
+/* Star rating */
 
 .guestbook-rating {
-  position: fixed;
+  position: absolute;
   top: 20px;
   right: 20px;
   z-index: 10;
@@ -39,4 +38,87 @@
 
 .rating > input:checked ~ label {
   color: #ffa723;
+}
+/* Glowing pixel heart */
+.guestbook-heart {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.heart {
+  display: inline-grid;
+  grid-template-columns: repeat(13, 20px);
+  grid-template-rows: repeat(11, 20px);
+  gap: 1px;
+  padding: 20px;
+  animation: heartbeat 2s infinite ease-in-out;
+}
+.pixel {
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s ease;
+  transform: scale(1);
+}
+.pixel.pink {
+  background: #e63946;
+  animation: pinkPulse 2.5s infinite ease-in-out;
+}
+.pixel.soft-pink {
+  background: #f1a1b4;
+  animation: softPinkPulse 2.2s infinite ease-in-out;
+}
+.pixel.white {
+  background: #ffeaea;
+  animation: whitePulse 2.8s infinite ease-in-out;
+}
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+@keyframes pinkPulse {
+  0%,
+  100% {
+    background: #ff6b81;
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(230, 57, 70, 0);
+  }
+  50% {
+    background: #e63946;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(230, 57, 70, 0.6);
+  }
+}
+@keyframes softPinkPulse {
+  0%,
+  100% {
+    background: #e63946;
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(241, 161, 180, 0);
+  }
+  50% {
+    background: #f1a1b4;
+    transform: scale(1.05);
+    box-shadow: 0 0 8px rgba(241, 161, 180, 0.6);
+  }
+}
+@keyframes whitePulse {
+  0%,
+  100% {
+    background: #ffe3e3;
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(255, 234, 234, 0);
+  }
+  50% {
+    background: #ffeaea;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 234, 234, 0.8);
+  }
 }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research — Cybernaut Annie</title>
+
+<!----y2k fonts---->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+<!-- page-specific theme for Research goes here once we design it -->
+</head>
+<body>
+
+  <!---Research window--->
+  <div class="os-window" id="research">
+    <div class="os-titlebar">
+      <span class="os-titlebar-label">📄 RESEARCH.exe</span>
+      <div class="os-controls">
+        <button>_</button>
+        <button>▢</button>
+        <button>X</button>
+      </div>
+    </div>
+    <div class="os-body">
+      <p>papers and write-ups</p>
+      <!-- your papers/links go here -->
+    </div>
+  </div>
+
+  <!---taskbar navigation--->
+  <div class="taskbar">
+    <a class="start-button" href="index.html">START</a>
+    <a class="taskbar-tab" href="about.html">About Me</a>
+    <a class="taskbar-tab" href="research.html">Research</a>
+    <a class="taskbar-tab" href="gallery.html">Gallery</a>
+    <a class="taskbar-tab" href="guestbook.html">Guestbook</a>
+  </div>
+
+</body>
+</html>

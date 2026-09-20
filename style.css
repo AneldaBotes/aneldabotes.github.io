@@ -236,13 +236,12 @@ a, button, label, input {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  grid-template-columns: 1fr;
+  gap: 24px;
   margin-top: 16px;
 }
 
 .gallery-tile {
-  aspect-ratio: 1;
   border: 3px solid #ff1ab3;
   overflow: hidden;
 }

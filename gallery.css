@@ -29,6 +29,8 @@
     #000 60%,
     transparent 100%
   );
+}
+
   /* Widen the gallery window */
 #gallery {
   max-width: 900px;

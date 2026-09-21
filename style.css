@@ -403,8 +403,8 @@ a, button, label, input {
   left: 0;
   width: 100%;
   height: 52px;
-  background: #00ffff;
-  border-top: 3px solid #ffffff;
+  background: #000033;
+  border-top: 3px solid #00ffff;
   display: flex;
   align-items: center;
   padding: 0 8px;
@@ -419,8 +419,8 @@ a, button, label, input {
   font-size: 0.65rem;
   background: #ff1ab3;
   color: #ffffff;
-  border: 3px solid #000033;
-  box-shadow: 2px 2px 0 #000033;
+  border: 3px solid #00ffff;
+  box-shadow: 2px 2px 0 #808080;
   padding: 8px 14px;
 }
 

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — Cybernaut Annie</title>
+
+<!----y2k fonts---->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="gallery.css">
+  <link rel="icon" type="image/png" href="cybernaut.png">
+</head>
+<body>
+ <!---tiled grid background--->
+  <div class="grid-wrapper">
+    <div class="grid-background"> </div>
+    </div>
+  <!---Gallery window--->
+  <div class="os-window" id="gallery">
+    <div class="os-titlebar">
+      <span class="os-titlebar-label">📸 GALLERY.exe</span>
+      <div class="os-controls">
+        <button>_</button>
+        <button>▢</button>
+        <button>X</button>
+      </div>
+   </div>
+    <div class="os-body">
+      <p>Archived Pixels — click to view</p>
+      <div class="gallery-grid">
+        <div class="gallery-tile"><img src="cyber-bridge.jpg" alt="Bridge"></div>
+        <div class="gallery-tile"><img src="cyber-cat.jpg" alt="Cat"></div>
+        <div class="gallery-tile"><img src="cyber-city.jpg" alt="City"></div>
+        <div class="gallery-tile"><img src="cyber-garden.jpg" alt="Garden"></div>
+        <div class="gallery-tile"><img src="cyber-iwantyou.jpg" alt="I want you"></div>
+        <div class="gallery-tile"><img src="cyber-leisure.jpg" alt="Leisure"></div>
+        <div class="gallery-tile"><img src="cyber-phonebooth.jpg" alt="Phonebooth"></div>
+        <div class="gallery-tile"><img src="cyber-ride.jpg" alt="Ride"></div>
+        <div class="gallery-tile"><img src="cyber-roof.jpg" alt="Roof"></div>
+        <div class="gallery-tile"><img src="cyber-street.jpg" alt="Street"></div>
+      </div>
+    </div>
+     </div>
+
+  <!---Lightbox popup--->
+  <div class="lightbox-overlay" id="lightboxOverlay">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close">X</button>
+      <img id="lightboxImage" src="" alt="">
+    </div>
+  </div>
+
+  <!---taskbar navigation--->
+  <div class="taskbar">
+    <a class="start-button" href="index.html">START</a>
+    <a class="taskbar-tab" href="about.html">About Me</a>
+    <a class="taskbar-tab" href="research.html">Research</a>
+    <a class="taskbar-tab" href="gallery.html">Gallery</a>
+    <a class="taskbar-tab" href="guestbook.html">Guestbook</a>
+  </div>
+
+  <!---lightbox script--->
+  <script>
+    (function () {
+      var tiles = document.querySelectorAll('.gallery-tile img');
+      var overlay = document.getElementById('lightboxOverlay');
+      var lightboxImg = document.getElementById('lightboxImage');
+      var closeBtn = document.getElementById('lightboxClose');
+
+      function openLightbox(src, alt) {
+        lightboxImg.src = src;
+        lightboxImg.alt = alt;
+        overlay.classList.add('active');
+      }
+
+      function closeLightbox() {
+        overlay.classList.remove('active');
+        lightboxImg.src = '';
+      }
+
+      tiles.forEach(function (img) {
+        img.addEventListener('click', function () {
+          openLightbox(img.getAttribute('src'), img.getAttribute('alt'));
+        });
+      });
+
+      closeBtn.addEventListener('click', closeLightbox);
+
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) {
+          closeLightbox();
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>

@@ -19,9 +19,8 @@
   <div class="grid-wrapper">
     <div class="grid-background"> </div>
     </div>
-
-  <!---Gallery header (still Win98 windowed)--->
-  <div class="gallery-header" id="gallery">
+  <!---Gallery window--->
+  <div class="os-window" id="gallery">
     <div class="os-titlebar">
       <span class="os-titlebar-label">📸 GALLERY.exe</span>
       <div class="os-controls">
@@ -30,22 +29,22 @@
         <button>X</button>
       </div>
    </div>
-    <p class="gallery-caption">Archived Pixels — scroll to view</p>
-  </div>
-
-  <!---Full-screen scrolling gallery--->
-  <div class="gallery-scroll">
-    <section class="gallery-slide"><img src="cyberpunk-garden.jpg" alt="Garden"></section>
-    <section class="gallery-slide"><img src="cyberpunk-street.jpg" alt="Street"></section>
-    <section class="gallery-slide"><img src="cyber-leisure.jpg" alt="Leisure"></section>
-    <section class="gallery-slide"><img src="cyber-phonebooth.jpg" alt="Phonebooth"></section>
-    <section class="gallery-slide"><img src="cyber-roof.jpg" alt="Roof"></section>
-    <section class="gallery-slide"><img src="cyber-city.jpg" alt="City"></section>
-    <section class="gallery-slide"><img src="cyber-cat.jpg" alt="Cat"></section>
-    <section class="gallery-slide"><img src="cyber-iwantyou.jpg" alt="I want you"></section>
-    <section class="gallery-slide"><img src="cyber-bridge.jpg" alt="Bridge"></section>
-  </div>
-
+    <div class="os-body">
+      <p>Archived Pixels</p>
+      <div class="gallery-stack">
+        <div class="gallery-frame"><img src="cyberpunk-garden.jpg" alt="Garden"></div>
+        <div class="gallery-frame"><img src="cyberpunk-street.jpg" alt="Street"></div>
+        <div class="gallery-frame"><img src="cyber-leisure.jpg" alt="Leisure"></div>
+        <div class="gallery-frame"><img src="cyber-phonebooth.jpg" alt="Phonebooth"></div>
+        <div class="gallery-frame"><img src="cyber-roof.jpg" alt="Roof"></div>
+        <div class="gallery-frame"><img src="cyber-city.jpg" alt="City"></div>
+        <div class="gallery-frame"><img src="cyber-cat.jpg" alt="Cat"></div>
+        <div class="gallery-frame"><img src="cyber-iwantyou.jpg" alt="I want you"></div>
+        <div class="gallery-frame"><img src="cyber-bridge.jpg" alt="Bridge"></div>
+      </div>
+    </div>
+     </div>
+  
   <!---taskbar navigation--->
   <div class="taskbar">
     <a class="start-button" href="index.html">START</a>
@@ -54,6 +53,6 @@
     <a class="taskbar-tab" href="gallery.html">Gallery</a>
     <a class="taskbar-tab" href="guestbook.html">Guestbook</a>
   </div>
-
+ 
 </body>
 </html>

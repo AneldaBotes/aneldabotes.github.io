@@ -68,7 +68,7 @@ html {
   width: 100%;
   height: 100vh;
   height: 100dvh; /* handles mobile browser chrome better; falls back to 100vh above */
-  padding: clamp(16px, 5vw, 60px); /* lets the tiled grid background peek through around each image */
+  padding: clamp(4px,1.2vw, 16px); /* lets the tiled grid background peek through around each image */
   scroll-snap-align: start;
   scroll-snap-stop: always;
   display: flex;

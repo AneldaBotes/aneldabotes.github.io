@@ -122,3 +122,7 @@
     box-shadow: 0 0 15px rgba(255, 234, 234, 0.8);
   }
 }
+
+.guestbook-send {
+  cursor: pointer;
+}

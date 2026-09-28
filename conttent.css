@@ -1,0 +1,26 @@
+/* Content page */
+
+.wallpaper-preview {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  display: block;
+}
+
+.download-btn {
+  display: inline-block;
+  margin-top: 12px;
+  text-decoration: none;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.65rem;
+  background: #ff1ab3;
+  color: #ffffff;
+  border: 3px solid #00ffff;
+  box-shadow: 2px 2px 0 #808080;
+  padding: 8px 14px;
+}
+
+.download-btn:active {
+  box-shadow: none;
+  transform: translate(2px, 2px);
+}

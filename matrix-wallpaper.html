@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matrix wallpaper</title>
+  <style>
+    html, body { margin: 0; padding: 0; background: #000; overflow: hidden; }
+
+    .matrix-bg {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+      overflow: hidden;
+      z-index: -1;
+      opacity: 1; /* site uses 0.67; full brightness for wallpaper */
+      display: flex;
+    }
+
+    .matrix-column {
+      position: absolute;
+      top: -100%;
+      width: 20px;
+      height: 100%;
+      font-size: 16px;
+      line-height: 18px;
+      font-weight: bold;
+      animation: fall linear infinite;
+      white-space: nowrap;
+    }
+
+    .matrix-column::before {
+      content: attr(data-chars);
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        #ffffff 5%,
+        #00ff41 10%,
+        #00ff41 20%,
+        #00dd33 30%,
+        #00bb22 40%,
+        #009911 50%,
+        #007700 60%,
+        #005500 70%,
+        #003300 80%,
+        rgba(0, 255, 65, 0.5) 90%,
+        transparent 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      writing-mode: vertical-lr;
+      letter-spacing: 1px;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-10%); opacity: 1; }
+      100% { transform: translateY(200%); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="matrix-bg" id="matrix-bg"></div>
+  <script>
+    (function () {
+      var COLUMN_SPACING = 25;
+      var SLOW = 2.5; // 1 = original speed, bigger = slower (try 2 to 4)
+
+      var CHAR_SETS = [
+        "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン123456789",
+        "ガギグゲゴザジズゼゾダヂヅデドバビブベボパピプペポヴァィゥェォャュョッABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        "アカサタナハマヤラワイキシチニヒミリウクスツヌフムユルエケセテネヘメレオコソトノホモヨロヲン0987654321",
+        "ンヲロヨモホノトソコオレメヘネテセケエルユムフヌツスクウリミヒニチシキイワラヤマハナタサカア",
+        "ガザダバパギジヂビピグズヅブプゲゼデベペゴゾドボポヴァィゥェォャュョッ!@#$%^&*()_+-=[]{}|;:,.<>?"
+      ];
+
+      function randomBetween(min, max) {
+        return (Math.random() * (max - min) + min);
+      }
+
+      function buildMatrix(mountId) {
+        var mount = document.getElementById(mountId);
+        if (!mount) return;
+        mount.innerHTML = '';
+        var columnCount = Math.ceil(window.innerWidth / COLUMN_SPACING) + 2;
+        for (var i = 0; i < columnCount; i++) {
+          var col = document.createElement('div');
+          col.className = 'matrix-column';
+          col.style.left = (i * COLUMN_SPACING) + 'px';
+          col.style.animationDelay = '-' + (randomBetween(1.5, 4) * SLOW).toFixed(1) + 's';
+          col.style.animationDuration = (randomBetween(2.3, 4.5) * SLOW).toFixed(1) + 's';
+          col.setAttribute('data-chars', CHAR_SETS[Math.floor(Math.random() * CHAR_SETS.length)]);
+          mount.appendChild(col);
+        }
+      }
+
+      var resizeTimer;
+      function scheduleRebuild() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () { buildMatrix('matrix-bg'); }, 300);
+      }
+
+      document.addEventListener('DOMContentLoaded', function () { buildMatrix('matrix-bg'); });
+      window.addEventListener('resize', scheduleRebuild);
+    })();
+  </script>
+</body>
+</html>

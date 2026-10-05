@@ -123,6 +123,14 @@
   }
 }
 
-.guestbook-send {
-  cursor: pointer;
+/* Nokia phone, under the stars */
+.guestbook-nokia {
+  top: 75px;
+  left: auto;
+  right: 60px;
+  transform: none;
+}
+
+.guestbook-nokia .nokia-spin {
+  width: 70px;
 }

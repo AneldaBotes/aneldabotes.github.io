@@ -1,17 +1,17 @@
+/* Cybersigil font */
 @font-face {
   font-family: 'Cybersigil';
   src: url('cybersigil_font.ttf') format('truetype');
   font-display: swap;
 }
 
-.cybersigil-title {
+.cybersigil-word {
   font-family: 'Cybersigil', 'VT323', monospace;
   text-transform: uppercase;
-  font-size: 2.5rem;
+  font-size: 1.3em;
   color: #ff1ab3;
-  margin: 24px 0 8px;
-  letter-spacing: 2px;
 }
+
 /* Content page */
 
 .wallpaper-preview {

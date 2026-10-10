@@ -1,81 +1,135 @@
-/* Pixel pet cat — the egg-shaped device on the left side; scrolls with the page.
-   Everything inside it is created by pet.js. */
+/* =========================================================
+   pet.css — caped pixel cat (About Me page)
+   Bottom-left corner, sitting on the taskbar like a floor.
+   Fixed to the screen, so she comes along as you scroll.
+   ========================================================= */
 
-.pet-shell {
-  position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 6;
-  width: 168px;
-  padding: 30px 18px 28px;
+.pet-cat {
+  position: fixed;
+  left: 24px;
+  /* taskbar is 52px tall; her paws sit 7 sprite-pixels above
+     the canvas bottom (7 x 4px = 28px), so 52 - 28 = 24px */
+  bottom: 24px;
+  z-index: 7;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  background: radial-gradient(circle at 35% 22%, #ffd1f0 0%, #ff6fd8 30%, #ff1ab3 100%);
-  border: 4px solid #000033;
-  border-radius: 50% 50% 46% 46% / 42% 42% 58% 58%;
-  box-shadow: 5px 5px 0 #00ffff;
-  user-select: none;
-  -webkit-user-select: none;
+  transition: transform 0.15s linear;
 }
 
-.pet-logo {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.42rem;
-  letter-spacing: 0.12em;
-  color: #ffffff;
-  text-shadow: 1px 1px 0 #000033;
-}
-
-.pet-frame {
-  background: #000033;
-  padding: 4px;
-  border-radius: 6px;
-  box-shadow: inset 0 0 0 2px #ff9fe0;
-}
-
-.pet-screen {
+.pet-canvas {
   display: block;
-  width: 120px;
-  height: 90px;
+  outline: none;
+  width: 256px;
+  height: 224px;
   image-rendering: pixelated;
-  touch-action: none;
+  image-rendering: crisp-edges;
 }
 
-.pet-buttons {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6px;
-  width: 112px;
+.pet-canvas:focus-visible { outline: 2px dashed #00ffff; outline-offset: 2px; }
+
+.pet-canvas.flip { transform: scaleX(-1); }
+
+.pet-yarn {
+  position: absolute;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  pointer-events: none;
+}
+.pet-yarn[hidden] { display: none; }
+
+/* Sims-style menu, popping out beside her */
+.pet-actions {
+  position: absolute;
+  left: calc(100% + 6px);
+  top: 26%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.pet-actions[hidden] { display: none; }
+
+/* little diamond pointing back at her */
+.pet-actions::before {
+  content: '';
+  position: absolute;
+  left: -18px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  margin-top: -5px;
+  background: #00ffff;
+  border: 2px solid #000000;
+  transform: rotate(45deg);
+}
+
+.pet-actions.pop .pet-btn {
+  animation: pet-pop 0.22s steps(3) both;
+}
+.pet-actions.pop .pet-btn:nth-child(2) { animation-delay: 0.06s; }
+.pet-actions.pop .pet-btn:nth-child(3) { animation-delay: 0.12s; }
+
+@keyframes pet-pop {
+  from { transform: scale(0.2); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
 }
 
 .pet-btn {
-  font-family: 'VT323', monospace;
-  font-size: 1rem;
-  line-height: 1;
-  padding: 3px 0;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.55rem;
+  background: #ff1ab3;
+  color: #ffffff;
+  border: 3px solid #000000;
+  box-shadow: 3px 3px 0 #00ffff;
+  padding: 7px 10px;
+  white-space: nowrap;
+}
+
+.pet-btn:hover,
+.pet-btn:focus-visible {
   background: #ffffff;
-  color: #000033;
-  border: 2px solid #000033;
-  border-radius: 10px;
-  box-shadow: 2px 2px 0 #000033;
+  color: #ff1ab3;
+  outline: none;
 }
 
 .pet-btn:active {
+  box-shadow: 1px 1px 0 #00ffff;
   transform: translate(2px, 2px);
-  box-shadow: none;
 }
 
-.pet-btn:focus-visible {
-  outline: 2px solid #00ffff;
-  outline-offset: 2px;
+.pet-bubble {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translate(-50%, 4px);
+  background: #ffffff;
+  color: #000033;
+  font-family: 'VT323', monospace;
+  font-size: 1.2rem;
+  line-height: 1;
+  border: 3px solid #000000;
+  box-shadow: 3px 3px 0 #ff1ab3;
+  padding: 4px 10px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s steps(2), transform 0.2s steps(2);
+}
+
+.pet-bubble.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pet-actions.pop .pet-btn { animation: none; }
+  .pet-cat { transition: none; }
 }
 
 @media (max-width: 600px) {
-  .pet-shell {
-    transform: translateY(-50%) scale(0.8);
-    transform-origin: left center;
-  }
+  .pet-cat { left: 8px; bottom: 31px; }   /* 52 - 7 x 3px */
+  .pet-canvas { width: 192px; height: 168px; }
 }

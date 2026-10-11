@@ -50,7 +50,7 @@ body {
 .atlas-coin {
   position: fixed;
   top: 200px;   
-  left: -20px;
+  left: -30px;
   width: 96px;
   height: 96px;
   z-index: 7;

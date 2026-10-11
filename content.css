@@ -27,7 +27,7 @@
   text-decoration: none;
   font-family: 'Press Start 2P', cursive;
   font-size: 0.65rem;
-  background: #ff1ab3;
+  background: #00FF41;
   color: #ffffff;
   border: 3px solid #00ffff;
   box-shadow: 2px 2px 0 #808080;
@@ -45,7 +45,7 @@ body {
   background: #000099;
 }
 
-/* Aesthetic Atlas launch coin, overlapping the right edge of the Content window */
+/* Aesthetic Atlas launch coin*/
 
 .atlas-coin {
   position: fixed;

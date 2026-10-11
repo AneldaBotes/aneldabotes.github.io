@@ -38,3 +38,129 @@
   box-shadow: none;
   transform: translate(2px, 2px);
 }
+
+/* Plain background (matrix rain removed for now) */
+
+body {
+  background: #000099;
+}
+
+/* Aesthetic Atlas launch coin, overlapping the right edge of the Content window */
+
+.atlas-coin {
+  position: absolute;
+  top: 200px;   /* higher number = further down */
+  right: -30px; /* closer to 0 = further left, over the window */
+  width: 96px;
+  height: 96px;
+  z-index: 7;
+  display: block;
+  border-radius: 50%;
+  perspective: 600px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.atlas-coin::before {
+  /* soft gold halo, brighter when hovered */
+  content: "";
+  position: absolute;
+  inset: -22px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(242, 207, 116, 0.45) 40%, rgba(242, 207, 116, 0) 70%);
+  opacity: 0.55;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.coin {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.coin-face,
+.coin-edge {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+
+.coin-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.coin-face svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.coin-front { transform: translateZ(4px); }
+.coin-back  { transform: rotateY(180deg) translateZ(4px); }
+
+/* stacked rims give the coin its thickness when it turns side-on */
+.coin-edge { background: #8c6a22; }
+.coin-edge:nth-child(1) { transform: translateZ(-3px); background: #6e521a; }
+.coin-edge:nth-child(2) { transform: translateZ(-1.5px); }
+.coin-edge:nth-child(3) { transform: translateZ(0); background: #b8892e; }
+.coin-edge:nth-child(4) { transform: translateZ(1.5px); }
+.coin-edge:nth-child(5) { transform: translateZ(3px); background: #6e521a; }
+
+/* hover: spin like a coin */
+.atlas-coin:hover .coin,
+.atlas-coin:focus-visible .coin {
+  animation: coin-spin 1.6s linear infinite;
+}
+
+.atlas-coin:hover::before,
+.atlas-coin:focus-visible::before {
+  opacity: 1;
+}
+
+.atlas-coin:focus-visible {
+  outline: 3px solid #f2cf74;
+  outline-offset: 6px;
+}
+
+@keyframes coin-spin {
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(360deg); }
+}
+
+/* click: a burst of gold light */
+.atlas-coin::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.atlas-coin.launching::after {
+  animation: coin-flash 0.9s ease-out;
+}
+
+@keyframes coin-flash {
+  0%   { opacity: 1; box-shadow: 0 0 0 0 rgba(255, 226, 140, 0.95), 0 0 30px 10px rgba(242, 207, 116, 0.9); }
+  60%  { opacity: 1; box-shadow: 0 0 0 26px rgba(242, 207, 116, 0), 0 0 60px 30px rgba(242, 207, 116, 0.5); }
+  100% { opacity: 0; box-shadow: 0 0 0 34px rgba(242, 207, 116, 0), 0 0 80px 40px rgba(242, 207, 116, 0); }
+}
+
+/* phones: smaller coin sitting on the top-right corner of the window */
+@media (max-width: 760px) {
+  .atlas-coin {
+    width: 68px;
+    height: 68px;
+    top: -30px;
+    right: -14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atlas-coin:hover .coin,
+  .atlas-coin:focus-visible .coin { animation: none; }
+}

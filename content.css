@@ -1,3 +1,9 @@
+/* Content page accent: matrix green replaces the site pink on this page only.
+   Change this one value to try a different green. */
+.content-page {
+  --matrix-green: #00ff41;
+}
+
 /* Cybersigil font */
 @font-face {
   font-family: 'Cybersigil';
@@ -9,7 +15,7 @@
   font-family: 'Cybersigil', 'VT323', monospace;
   text-transform: uppercase;
   font-size: 1.3em;
-  color: #00FF41;
+  color: var(--matrix-green);
 }
 
 /* Content page */
@@ -27,8 +33,8 @@
   text-decoration: none;
   font-family: 'Press Start 2P', cursive;
   font-size: 0.65rem;
-  background: #00FF41;
-  color: #ffffff;
+  background: var(--matrix-green);
+  color: #000033;
   border: 3px solid #00ffff;
   box-shadow: 2px 2px 0 #808080;
   padding: 8px 14px;
@@ -45,14 +51,14 @@ body {
   background: #000099;
 }
 
-/* Aesthetic Atlas launch coin*/
+/* Aesthetic Atlas launch coin, overlapping the right edge of the Content window */
 
 .atlas-coin {
-  position: fixed;
-  top: 200px;   
-  left: 30px;
-  width: 111px;
-  height: 111px;
+  position: absolute;
+  top: 200px;   /* higher number = further down */
+  right: -30px; /* closer to 0 = further left, over the window */
+  width: 96px;
+  height: 96px;
   z-index: 7;
   display: block;
   border-radius: 50%;
@@ -163,4 +169,40 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .atlas-coin:hover .coin,
   .atlas-coin:focus-visible .coin { animation: none; }
+}
+
+/* Pink -> green on the Content page only (the other pages keep their pink) */
+
+.content-page .os-window {
+  border-color: var(--matrix-green);
+}
+
+.content-page .os-titlebar {
+  background: var(--matrix-green);
+}
+
+.content-page .os-titlebar-label {
+  color: #000033; /* dark text, white is hard to read on bright green */
+}
+
+.content-page .gallery-tile {
+  border-color: var(--matrix-green);
+}
+
+.content-page .start-button {
+  background: var(--matrix-green);
+  color: #000033;
+}
+
+/* green version of the pixel sparkle cursor */
+.content-page,
+html:has(.content-page) {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'><g fill='%2300ff41'><rect x='10' y='0' width='4' height='4'/><rect x='10' y='20' width='4' height='4'/><rect x='0' y='10' width='4' height='4'/><rect x='20' y='10' width='4' height='4'/><rect x='8' y='8' width='8' height='8'/><rect x='3' y='3' width='2' height='2' fill='%2300ffff'/><rect x='19' y='3' width='2' height='2' fill='%2300ffff'/><rect x='3' y='19' width='2' height='2' fill='%2300ffff'/><rect x='19' y='19' width='2' height='2' fill='%2300ffff'/></g></svg>") 12 12, auto;
+}
+
+.content-page a,
+.content-page button,
+.content-page label,
+.content-page input {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'><g fill='%2300ffff'><rect x='10' y='0' width='4' height='4'/><rect x='10' y='20' width='4' height='4'/><rect x='0' y='10' width='4' height='4'/><rect x='20' y='10' width='4' height='4'/><rect x='8' y='8' width='8' height='8'/><rect x='3' y='3' width='2' height='2' fill='%2300ff41'/><rect x='19' y='3' width='2' height='2' fill='%2300ff41'/><rect x='3' y='19' width='2' height='2' fill='%2300ff41'/><rect x='19' y='19' width='2' height='2' fill='%2300ff41'/></g></svg>") 12 12, pointer;
 }

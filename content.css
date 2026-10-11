@@ -48,9 +48,9 @@ body {
 /* Aesthetic Atlas launch coin, overlapping the right edge of the Content window */
 
 .atlas-coin {
-  position: absolute;
-  top: 200px;   /* higher number = further down */
-  right: -30px; /* closer to 0 = further left, over the window */
+  position: fixed;
+  top: 200px;   
+  left: -20px;
   width: 96px;
   height: 96px;
   z-index: 7;

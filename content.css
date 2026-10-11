@@ -51,14 +51,14 @@ body {
   background: #000099;
 }
 
-/* Aesthetic Atlas launch coin, overlapping the right edge of the Content window */
+/* Aesthetic Atlas launch coin*/
 
 .atlas-coin {
-  position: absolute;
-  top: 200px;   /* higher number = further down */
-  right: -30px; /* closer to 0 = further left, over the window */
-  width: 96px;
-  height: 96px;
+  position: fixed;
+  top: 200px;   
+  left: 30px; 
+  width: 150px;
+  height: 150px;
   z-index: 7;
   display: block;
   border-radius: 50%;

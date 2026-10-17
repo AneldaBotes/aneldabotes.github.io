@@ -26,7 +26,7 @@
   image-rendering: crisp-edges;
 }
 
-.pet-canvas:focus-visible { outline: 2px dashed #00ffff; outline-offset: 2px; }
+.pet-canvas:focus-visible { outline: 2px dashed #000000; outline-offset: 2px; }
 
 .pet-canvas.flip { transform: scaleX(-1); }
 
@@ -61,8 +61,8 @@
   width: 10px;
   height: 10px;
   margin-top: -5px;
-  background: #00ffff;
-  border: 2px solid #000000;
+  background: #ffffff;
+  border: 3px solid #000000;
   transform: rotate(45deg);
 }
 
@@ -80,24 +80,26 @@
 .pet-btn {
   font-family: 'Press Start 2P', cursive;
   font-size: 0.55rem;
-  background: #ff1ab3;
-  color: #ffffff;
+  background: #4ade80;
+  color: #000000;
   border: 3px solid #000000;
-  box-shadow: 3px 3px 0 #00ffff;
+  box-shadow: 3px 3px 0 #000000;
   padding: 7px 10px;
   white-space: nowrap;
+  transition: translate 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .pet-btn:hover,
 .pet-btn:focus-visible {
-  background: #ffffff;
-  color: #ff1ab3;
+  translate: 1.5px 1.5px;
+  box-shadow: 1.5px 1.5px 0 #000000;
+  background: #1ac2ff;
   outline: none;
 }
 
 .pet-btn:active {
-  box-shadow: 1px 1px 0 #00ffff;
-  transform: translate(2px, 2px);
+  translate: 3px 3px;
+  box-shadow: 0 0 0 #000000;
 }
 
 .pet-bubble {
@@ -106,12 +108,12 @@
   left: 50%;
   transform: translate(-50%, 4px);
   background: #ffffff;
-  color: #000033;
+  color: #000000;
   font-family: 'VT323', monospace;
   font-size: 1.2rem;
   line-height: 1;
   border: 3px solid #000000;
-  box-shadow: 3px 3px 0 #ff1ab3;
+  box-shadow: 3px 3px 0 #000000;
   padding: 4px 10px;
   white-space: nowrap;
   pointer-events: none;

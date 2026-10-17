@@ -1,52 +1,134 @@
-/* Tiled faded grid background*/
+/* =========================================================
+   gallery.css — neon sign bar + surveillance feeds
+   Purple-black room, flickering magenta/acid-yellow sign,
+   camera feeds below with a wet-floor reflection.
+   ========================================================= */
+
+/* ---------- the room ---------- */
 
 .grid-wrapper {
   position: fixed;
   inset: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #000033;
   z-index: -1;
+  background:
+    radial-gradient(ellipse 60% 35% at 50% 6%, rgba(255, 43, 214, 0.24), transparent 70%),
+    radial-gradient(ellipse 40% 25% at 50% 20%, rgba(232, 255, 46, 0.10), transparent 70%),
+    #0b0514;
 }
 
+/* faint brick wall, fading out toward the floor */
 .grid-background {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 0;
-  background-image: linear-gradient(to right, rgba(255, 26, 179, 0.15) 3px, transparent 3px),
-    linear-gradient(to bottom, rgba(255, 26, 179, 0.15) 3px, transparent 3px);
-  background-size: 20px 30px;
-  -webkit-mask-image: radial-gradient(
-    ellipse 70% 60% at 50% 0%,
-    #000 60%,
-    transparent 100%
-  );
-  mask-image: radial-gradient(
-    ellipse 70% 60% at 50% 0%,
-    #000 60%,
-    transparent 100%
-  );
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='56'><path d='M0 1H120M0 29H120M1 0V28M61 28V56' stroke='%23ffffff' stroke-opacity='0.05' stroke-width='2' fill='none'/></svg>");
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 90%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 90%);
 }
 
-/* Widen the gallery window (base style.css caps .os-window at 640px) */
-#gallery {
-  max-width: 900px;
+/* ---------- neon sign ---------- */
+
+.neon-sign {
+  margin: 10px auto 6px;
+  text-align: center;
+  line-height: 1;
+  font-weight: normal;
+  text-shadow: none;
+  animation: neon-hum 4s ease-in-out infinite;
 }
 
-/* More breathing room between tiles than the base style.css default (12px) */
+.neon-top {
+  display: block;
+  font-family: 'Neonderthaw', cursive;
+  font-size: clamp(3rem, 9vw, 5.5rem);
+  color: #ffe6fb;
+  text-shadow:
+    0 0 4px #ffffff,
+    0 0 10px #ff2bd6,
+    0 0 22px #ff2bd6,
+    0 0 44px #ff2bd6,
+    0 0 80px rgba(255, 43, 214, 0.6);
+  transform: rotate(-4deg);
+  margin-bottom: -6px;
+}
+
+.neon-bottom {
+  display: block;
+  font-family: 'Monoton', cursive;
+  font-size: clamp(2rem, 7vw, 4.2rem);
+  letter-spacing: 6px;
+  color: #fbffd6;
+  text-shadow:
+    0 0 4px #ffffff,
+    0 0 10px #e8ff2e,
+    0 0 22px #e8ff2e,
+    0 0 44px rgba(232, 255, 46, 0.7);
+}
+
+/* the one dodgy letter */
+.neon-bottom .flicker {
+  animation: neon-flicker 3.6s linear infinite;
+}
+
+@keyframes neon-flicker {
+  0%, 18%, 21%, 23%, 54%, 58%, 100% { opacity: 1; }
+  19%, 22%, 55%, 57% { opacity: 0.15; text-shadow: none; }
+}
+
+@keyframes neon-hum {
+  0%, 100% { filter: brightness(1); }
+  50%      { filter: brightness(1.12); }
+}
+
+/* small status line under the sign */
+.neon-status {
+  max-width: none;
+  margin: 0 auto 34px;
+  text-align: center;
+  font-family: 'VT323', monospace;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+  color: #ffb3f0;
+  text-shadow: 0 0 6px rgba(255, 43, 214, 0.8);
+}
+
+.neon-status .blink {
+  color: #e8ff2e;
+  text-shadow: 0 0 6px #e8ff2e;
+  animation: cam-blink 1s steps(1) infinite;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- camera feeds ---------- */
+
 .gallery-grid {
-  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 18px;
+  /* wet-floor reflection (Chrome, Edge, Safari) */
+  -webkit-box-reflect: below 14px linear-gradient(transparent 82%, rgba(255, 255, 255, 0.22));
 }
 
-/* Thumbnails: crop to fill the square tile, cursor shows they're clickable */
 .gallery-tile {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border: 2px solid #2a1640;
+  background: #000000;
   overflow: hidden;
   cursor: pointer;
   padding: 0;
   min-width: 0;
+  box-shadow: 0 0 0 1px #000000, 0 8px 20px rgba(0, 0, 0, 0.6);
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .gallery-tile img {
@@ -54,13 +136,113 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  /* moody, neon-lit footage until you hover */
+  filter: grayscale(0.5) contrast(1.15) brightness(0.75) sepia(0.25) hue-rotate(260deg);
+  transition: filter 0.25s;
 }
 
-/* Lightbox popup */
+.gallery-tile:hover,
+.gallery-tile:focus-visible {
+  border-color: #ff2bd6;
+  box-shadow: 0 0 0 1px #000000, 0 0 18px rgba(255, 43, 214, 0.7), 0 0 40px rgba(255, 43, 214, 0.25);
+  outline: none;
+}
+
+.gallery-tile:hover img,
+.gallery-tile:focus-visible img {
+  filter: none;
+}
+
+/* scanlines + dark corners on every feed */
+.gallery-tile::after,
+.lightbox-content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background:
+    repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.28) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.65) 100%);
+}
+
+/* camera overlay text (added by gallery.js) */
+.cam-hud {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  font-family: 'VT323', monospace;
+  font-size: 1.05rem;
+  line-height: 1;
+  color: #ffe6fb;
+  text-shadow: 0 0 4px rgba(255, 43, 214, 0.9), 1px 1px 0 #000000;
+}
+
+.cam-id    { position: absolute; top: 7px;    left: 8px; }
+.cam-rec   { position: absolute; top: 7px;    right: 8px; color: #ff3b3b;
+             text-shadow: 0 0 4px rgba(255, 0, 0, 0.8), 1px 1px 0 #000000; }
+.cam-place { position: absolute; bottom: 7px; left: 8px; color: #fbffd6;
+             text-shadow: 0 0 4px rgba(232, 255, 46, 0.8), 1px 1px 0 #000000; }
+.cam-time  { position: absolute; bottom: 7px; right: 8px; }
+
+.cam-rec::before {
+  content: "\25CF";
+  margin-right: 3px;
+  animation: cam-blink 1s steps(1) infinite;
+}
+
+@keyframes cam-blink {
+  50% { opacity: 0; }
+}
+
+/* random signal glitch (gallery.js adds .glitch now and then) */
+.gallery-tile.glitch img {
+  animation: cam-glitch 0.35s steps(2) 1;
+}
+
+@keyframes cam-glitch {
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(-4px); filter: hue-rotate(90deg) saturate(3) brightness(1.3); }
+  50%  { transform: translateX(3px) skewX(-4deg); }
+  75%  { transform: translateX(-2px); filter: brightness(0.3); }
+  100% { transform: none; }
+}
+
+/* if an image fails to load: static + NO SIGNAL */
+.gallery-tile.no-signal img {
+  visibility: hidden;
+}
+
+.gallery-tile.no-signal::before {
+  content: "NO SIGNAL";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.6rem;
+  color: #ffffff;
+  text-shadow: 0 0 6px #000000, 2px 2px 0 #000000;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>");
+  animation: cam-static 0.3s steps(4) infinite;
+}
+
+@keyframes cam-static {
+  0%   { background-position: 0 0; }
+  25%  { background-position: -40px 30px; }
+  50%  { background-position: 50px -20px; }
+  75%  { background-position: -20px -50px; }
+  100% { background-position: 0 0; }
+}
+
+/* ---------- lightbox: one big neon-lit screen ---------- */
+
 .lightbox-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(11, 5, 20, 0.94);
   display: none;
   align-items: center;
   justify-content: center;
@@ -73,31 +255,135 @@
 
 .lightbox-content {
   position: relative;
-  max-width: 90vw;
-  max-height: 90vh;
+  max-width: 92vw;
+  max-height: 86vh;
+  background: #000000;
+  border: 3px solid #ff2bd6;
+  box-shadow: 0 0 20px rgba(255, 43, 214, 0.7), 0 0 60px rgba(255, 43, 214, 0.3);
+}
+
+/* old-TV "switch on" when a feed opens */
+.lightbox-overlay.active .lightbox-content {
+  animation: feed-on 0.35s ease-out;
+}
+
+@keyframes feed-on {
+  0%   { transform: scale(0.6, 0.01); filter: brightness(3); }
+  60%  { transform: scale(1, 1);      filter: brightness(1.6); }
+  100% { transform: scale(1, 1);      filter: none; }
 }
 
 .lightbox-content img {
-  max-width: 90vw;
-  max-height: 90vh;
+  max-width: 92vw;
+  max-height: 86vh;
   width: auto;
   height: auto;
   object-fit: contain;
   display: block;
-  border: 4px solid #ff1ab3;
-  box-shadow: 8px 8px 0 #00ffff;
+  border: none;
+  box-shadow: none;
 }
+
+.lightbox-content .cam-hud {
+  font-size: 1.5rem;
+}
+
+.lightbox-content .cam-id,
+.lightbox-content .cam-rec     { top: 12px; }
+.lightbox-content .cam-id,
+.lightbox-content .cam-place   { left: 14px; }
+.lightbox-content .cam-rec,
+.lightbox-content .cam-time    { right: 14px; }
+.lightbox-content .cam-place,
+.lightbox-content .cam-time    { bottom: 12px; }
 
 .lightbox-close {
   position: absolute;
-  top: -14px;
-  right: -14px;
-  width: 32px;
-  height: 32px;
-  background: #ffffff;
-  border: 2px solid #000000;
+  top: -16px;
+  right: -16px;
+  z-index: 5;
+  width: 34px;
+  height: 34px;
+  background: #e8ff2e;
+  border: 3px solid #000000;
   font-family: 'Press Start 2P', cursive;
   font-size: 0.7rem;
-  color: #000033;
+  color: #000000;
+  box-shadow: 0 0 12px rgba(232, 255, 46, 0.7);
   cursor: pointer;
+}
+
+.lightbox-close:hover {
+  background: #ff2bd6;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(255, 43, 214, 0.8);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .neon-sign,
+  .neon-bottom .flicker,
+  .gallery-tile.glitch img,
+  .lightbox-overlay.active .lightbox-content,
+  .gallery-tile.no-signal::before { animation: none; }
+}
+
+/* ---------- taskbar (Gallery page only): neon tubes ---------- */
+
+.taskbar {
+  background: rgba(11, 5, 20, 0.92);
+  border-top: 2px solid #ff2bd6;
+  box-shadow: 0 -2px 14px rgba(255, 43, 214, 0.45);
+  gap: 12px;
+}
+
+.start-button {
+  background: transparent;
+  color: #fbffd6;
+  border: 2px solid #e8ff2e;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(232, 255, 46, 0.6), inset 0 0 8px rgba(232, 255, 46, 0.35);
+  text-shadow: 0 0 6px #e8ff2e;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+
+.start-button:hover {
+  background: rgba(232, 255, 46, 0.12);
+  box-shadow: 0 0 14px rgba(232, 255, 46, 0.9), inset 0 0 10px rgba(232, 255, 46, 0.5);
+}
+
+.start-button:active {
+  transform: translate(1px, 1px);
+  box-shadow: 0 0 4px rgba(232, 255, 46, 0.6);
+}
+
+/* tabs: unlit tubes that glow on hover */
+.taskbar-tab {
+  background: transparent;
+  color: #b88ab0;
+  border: 2px solid #5a2a52;
+  border-radius: 6px;
+  padding: 4px 14px;
+  transition: color 0.2s, border-color 0.2s, box-shadow 0.2s, text-shadow 0.2s;
+}
+
+.taskbar-tab:hover,
+.taskbar-tab:focus-visible {
+  color: #ffe6fb;
+  border-color: #ff2bd6;
+  box-shadow: 0 0 10px rgba(255, 43, 214, 0.7), inset 0 0 8px rgba(255, 43, 214, 0.35);
+  text-shadow: 0 0 6px #ff2bd6;
+  outline: none;
+}
+
+.taskbar-tab:active {
+  border-color: #ff2bd6;
+  transform: translate(1px, 1px);
+}
+
+/* the tab for this page stays switched on */
+.taskbar-tab[href="gallery.html"] {
+  color: #ffe6fb;
+  border-color: #ff2bd6;
+  box-shadow: 0 0 10px rgba(255, 43, 214, 0.7), inset 0 0 8px rgba(255, 43, 214, 0.35);
+  text-shadow: 0 0 6px #ff2bd6;
 }

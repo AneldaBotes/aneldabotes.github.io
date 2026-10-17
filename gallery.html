@@ -8,7 +8,7 @@
 <!----y2k fonts---->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Monoton&family=Neonderthaw&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="gallery.css">
@@ -19,19 +19,16 @@
   <div class="grid-wrapper">
     <div class="grid-background"> </div>
     </div>
-  <!---Gallery window--->
-  <div class="os-window" id="gallery">
-    <div class="os-titlebar">
-      <span class="os-titlebar-label">📸 GALLERY.exe</span>
-      <div class="os-controls">
-        <button>_</button>
-        <button>▢</button>
-        <button>X</button>
-      </div>
-   </div>
-    <div class="os-body">
-      <p>Archived Pixels — click to view</p>
-      <div class="gallery-grid">
+  <!---neon sign--->
+  <h1 class="neon-sign">
+    <span class="neon-top">Archived</span>
+    <span class="neon-bottom">PIX<span class="flicker">E</span>LS</span>
+  </h1>
+  <p class="neon-status"><span class="blink">&#9679;</span> <span id="feedCount">14</span> FEEDS LIVE &middot; <span id="hudClock"></span></p>
+
+  <!---camera feeds--->
+  <main>
+    <div class="gallery-grid">
         <div class="gallery-tile"><img src="cyber-wall.jpg" alt="Wall"></div>
         <div class="gallery-tile"><img src="cyber-phonebooth.jpg" alt="Phonebooth"></div>
         <div class="gallery-tile"><img src="cyber-garden.jpg" alt="Garden"></div>
@@ -48,14 +45,19 @@
         <div class="gallery-tile"><img src="cyber-city.jpg" alt="City"></div>
         <div class="gallery-tile"><img src="cyber-bridge.jpg" alt="Bridge"></div>
       </div>
-    </div>
-     </div>
+  </main>
 
   <!---Lightbox popup--->
   <div class="lightbox-overlay" id="lightboxOverlay">
     <div class="lightbox-content">
       <button class="lightbox-close" id="lightboxClose" aria-label="Close">X</button>
       <img id="lightboxImage" src="" alt="">
+      <div class="cam-hud">
+        <span class="cam-id" id="lightboxCam"></span>
+        <span class="cam-rec">REC</span>
+        <span class="cam-place" id="lightboxPlace"></span>
+        <span class="cam-time" id="lightboxTime"></span>
+      </div>
     </div>
   </div>
 
@@ -68,40 +70,8 @@
     <a class="taskbar-tab" href="guestbook.html">Guestbook</a>
   </div>
 
-  <!---lightbox script--->
-  <script>
-    (function () {
-      var tiles = document.querySelectorAll('.gallery-tile img');
-      var overlay = document.getElementById('lightboxOverlay');
-      var lightboxImg = document.getElementById('lightboxImage');
-      var closeBtn = document.getElementById('lightboxClose');
-
-      function openLightbox(src, alt) {
-        lightboxImg.src = src;
-        lightboxImg.alt = alt;
-        overlay.classList.add('active');
-      }
-
-      function closeLightbox() {
-        overlay.classList.remove('active');
-        lightboxImg.src = '';
-      }
-
-      tiles.forEach(function (img) {
-        img.addEventListener('click', function () {
-          openLightbox(img.getAttribute('src'), img.getAttribute('alt'));
-        });
-      });
-
-      closeBtn.addEventListener('click', closeLightbox);
-
-      overlay.addEventListener('click', function (e) {
-        if (e.target === overlay) {
-          closeLightbox();
-        }
-      });
-    })();
-  </script>
+  <!---surveillance wall + lightbox--->
+  <script src="gallery.js"></script>
 
 </body>
 </html>

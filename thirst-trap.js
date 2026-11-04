@@ -48,7 +48,7 @@
     padding: 6px 8px;
   }
   .tt-winbody { padding: 16px; color: #000000; font-size: 1.2rem; }
-  .tt-status { margin: 0 0 10px; min-height: 1.5em; }
+  .tt-overlay .tt-status { margin: 0 0 10px; min-height: 1.5em; color: #000000 !important; }
   .tt-bar {
     height: 22px;
     background: #ffffff;
@@ -148,7 +148,7 @@
     border-bottom-color: #ffffff;
     image-rendering: pixelated;
   }
-  .tt-cam-msg { color: #000033; font-size: 1.2rem; margin: 8px 0; min-height: 1.4em; }
+  .tt-overlay .tt-cam-msg { color: #000000 !important; font-size: 1.2rem; margin: 8px 0; min-height: 1.4em; }
   .tt-cam-btns { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
   .tt-cam-btns button {
     font-family: 'VT323', monospace;
